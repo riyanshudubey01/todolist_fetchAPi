@@ -1,52 +1,53 @@
-import {useState} from "react";
+
+import useFetch from "./UseFetch";
+import {Link} from "react-router-dom";
+
 
 export default function TodoList(){
-    const[todos,setTodos]=useState([
-        {
-            id:1,
-            title:"Learn React",
-            completed:false
-        },
-        {
-            id:2,
-            title:"Practise",
-            completed: false
-        },
-        {
-            id:3,
-            title:"Build Todo App",
-            completed: false
-        }
-    ]);
+    const{
+        data: todos,
+        setData: setTodos,
+        loader,
+        error
+    }=useFetch("http://localhost:8000/todoList")
     function toggleTodo(id){
         setTodos(
             todos.map((todo)=>
-                todo.id===id?{...todo,complete: !todo.completed}
+                todo.id===id?{...todo,completed: !todo.completed}
                     :todo)
         );
     }
     function deleteTodo(id){
         setTodos(todos.filter((todo)=>todo.id!==id));
     }
+    if(error){
+        return <>
+            <h2>{error}</h2>
+        </>
+    }
     return (
         <>
         <h1>Todo List</h1>
-            {todos.map((todo)=>(
+            {loader ?
+            <h1>Loading</h1>:
+            todos && todos.map((todo)=>(
                 <div key = {todo.id}>
                     <input type="checkbox"
                       checked={todo.completed}
                            onChange={()=>toggleTodo(todo.id)}
                     />
-
-                    <span
-                        style={{
-                            textDecoration: todo.completed
-                                ? "line-through"
-                                : "none",
-                        }}
-                    >
+                    <Link to={`/todos/${todo.id}`}>
+                         <span
+                             style={{
+                                 textDecoration: todo.completed
+                                     ? "line-through"
+                                     : "none",
+                             }}
+                         >
             {todo.title}
           </span>
+                    </Link>
+
                     <button onClick={() => deleteTodo(todo.id)}>
                         Delete
                     </button>

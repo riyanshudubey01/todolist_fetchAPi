@@ -1,0 +1,142 @@
+.home-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    background: #f4f6f8;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.home-card {
+    width: 100%;
+    max-width: 600px;
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+}
+
+.home-card h1 {
+    margin: 0 0 10px;
+    color: #222;
+    font-size: 32px;
+}
+
+.home-card p {
+    margin-bottom: 30px;
+    color: #666;
+    font-size: 16px;
+}
+
+/* Links section */
+.home-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.todo-button,
+.profile-link {
+    text-decoration: none;
+    padding: 12px 20px;
+    border-radius: 7px;
+    font-size: 15px;
+    transition: 0.2s ease;
+}
+
+.todo-button {
+    background: #2563eb;
+    color: white;
+}
+
+.todo-button:hover {
+    background: #1d4ed8;
+}
+
+.profile-link {
+    background: #e5e7eb;
+    color: #222;
+}
+
+.profile-link:hover {
+    background: #d1d5db;
+}
+
+/* Move Todo section */
+.home-container > div:last-child {
+    width: 100%;
+    max-width: 600px;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+}
+
+.home-container > div:last-child h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #222;
+}
+
+/* Input */
+.home-container input {
+    width: 70%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 15px;
+    box-sizing: border-box;
+    outline: none;
+}
+
+.home-container input:focus {
+    border-color: #2563eb;
+}
+
+/* Move button */
+.home-container button {
+    margin-left: 10px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    background: #16a34a;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.home-container button:hover {
+    background: #15803d;
+}
+
+/* Mobile responsive */
+@media (max-width: 600px) {
+    .home-card {
+        padding: 25px;
+    }
+
+    .home-card h1 {
+        font-size: 25px;
+    }
+
+    .home-links {
+        flex-direction: column;
+    }
+
+    .home-container input {
+        width: 100%;
+    }
+
+    .home-container button {
+        width: 100%;
+        margin-left: 0;
+        margin-top: 10px;
+    }
+}
