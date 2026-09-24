@@ -1,5 +1,7 @@
-import {useEffect, useState} from "react";
+
 import useFetch from "./UseFetch";
+import {Link} from "react-router-dom";
+
 
 export default function TodoList(){
     const{
@@ -34,16 +36,18 @@ export default function TodoList(){
                       checked={todo.completed}
                            onChange={()=>toggleTodo(todo.id)}
                     />
-
-                    <span
-                        style={{
-                            textDecoration: todo.completed
-                                ? "line-through"
-                                : "none",
-                        }}
-                    >
+                    <Link to={`/todos/${todo.id}`}>
+                         <span
+                             style={{
+                                 textDecoration: todo.completed
+                                     ? "line-through"
+                                     : "none",
+                             }}
+                         >
             {todo.title}
           </span>
+                    </Link>
+
                     <button onClick={() => deleteTodo(todo.id)}>
                         Delete
                     </button>
