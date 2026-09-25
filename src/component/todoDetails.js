@@ -3,12 +3,12 @@ import useFetch from "../UseFetch";
 
 export default function TodoDetails() {
     const { id } = useParams();
-
+   const url="http://localhost:8000/todoList/";
     const {
         data: todo,
         loader,
         error
-    } = useFetch("http://localhost:8000/todoList/" + id);
+    } = useFetch( url + id);
 
     return (
         <>
