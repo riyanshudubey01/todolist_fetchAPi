@@ -4,12 +4,13 @@ import {Link} from "react-router-dom";
 
 
 export default function TodoList(){
+    const url="http://localhost:8000/todoList";
     const{
         data: todos,
         setData: setTodos,
         loader,
         error
-    }=useFetch("http://localhost:8000/todoList")
+    }=useFetch(url)
     function toggleTodo(id){
         setTodos(
             todos.map((todo)=>
