@@ -6,7 +6,7 @@ import ProtectedRoute from "./component/ProtectedRoute";
 import Login from "./component/Login";
 import {BrowserRouter as Router,Route,Routes} from 'react-router-dom';
 import HomePage from "./component/HomePage";
-import AddTodo from "./component/AddTodo";
+import CreateTodo from "./component/CreateTodo"
 import TodoDetails from "./component/todoDetails";
 function App() {
   return (
@@ -15,10 +15,9 @@ function App() {
               <Routes>
                   <Route path="/" element={<HomePage/>}></Route>
                   <Route path="/login" element={<Login/>}></Route>
-
                   <Route path="/todos" element={<ProtectedRoute><TodoList/></ProtectedRoute>}></Route>
                   <Route path="/todos/:id" element={<ProtectedRoute><TodoDetails/></ProtectedRoute>}></Route>
-                  <Route path="/addTodo" element={<ProtectedRoute><AddTodo/></ProtectedRoute>}></Route>
+                  <Route path="/addTodo" element={<ProtectedRoute><CreateTodo/></ProtectedRoute>}></Route>
               </Routes>
           </>
       </Router>

@@ -19,6 +19,20 @@ export default function TodoList(){
         );
     }
     function deleteTodo(id){
+        fetch(`${url}/${id}`,{
+            method:"DELETE"
+        }).then((response) => {
+            if (!response.ok) {
+                throw new Error("Failed to delete todo");
+            }
+
+            console.log("Todo dele" +
+                "" +
+                "ted");
+        })
+            .catch((error) => {
+                console.error(error);
+            });
         setTodos(todos.filter((todo)=>todo.id!==id));
     }
     if(error){
@@ -48,7 +62,6 @@ export default function TodoList(){
             {todo.title}
           </span>
                     </Link>
-
                     <button onClick={() => deleteTodo(todo.id)}>
                         Delete
                     </button>
