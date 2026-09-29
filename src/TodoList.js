@@ -4,12 +4,13 @@ import {Link} from "react-router-dom";
 
 
 export default function TodoList(){
+    const url="http://localhost:8000/todoList";
     const{
         data: todos,
         setData: setTodos,
         loader,
         error
-    }=useFetch("http://localhost:8000/todoList")
+    }=useFetch(url)
     function toggleTodo(id){
         setTodos(
             todos.map((todo)=>
@@ -18,6 +19,20 @@ export default function TodoList(){
         );
     }
     function deleteTodo(id){
+        fetch(`${url}/${id}`,{
+            method:"DELETE"
+        }).then((response) => {
+            if (!response.ok) {
+                throw new Error("Failed to delete todo");
+            }
+
+            console.log("Todo dele" +
+                "" +
+                "ted");
+        })
+            .catch((error) => {
+                console.error(error);
+            });
         setTodos(todos.filter((todo)=>todo.id!==id));
     }
     if(error){
@@ -47,7 +62,6 @@ export default function TodoList(){
             {todo.title}
           </span>
                     </Link>
-
                     <button onClick={() => deleteTodo(todo.id)}>
                         Delete
                     </button>
