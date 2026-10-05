@@ -1,14 +1,15 @@
 import { useParams } from "react-router-dom";
 import useFetch from "../UseFetch";
+import type { Todo } from "../types";
 
 export default function TodoDetails() {
     const { id } = useParams();
-
+   const url="http://localhost:8000/todoList/";
     const {
         data: todo,
         loader,
         error
-    } = useFetch("http://localhost:8000/todoList/" + id);
+    } = useFetch<Todo>(url + (id ?? ""));
 
     return (
         <>

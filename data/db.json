@@ -1,19 +1,15 @@
 {
-  "todoList":[
+  "todoList": [
     {
-      "id":1,
-      "title":"Learn React",
-      "completed":false
-    },
-    {
-      "id":2,
-      "title":"Practise",
+      "id": "3",
+      "title": "Build Todo App",
       "completed": false
     },
     {
-      "id":3,
-      "title":"Build Todo App",
-      "completed": false
+      "id": "_4l9lfUnMQg",
+      "title": "asdl;fjkdl",
+      "completed": "asdlkgdjabgsldg"
     }
-  ]
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }
