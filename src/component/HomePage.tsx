@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import "../HomePage.css";
-import { useState } from "react";
+import { useState, type ChangeEvent } from "react";
 
 export default function HomePage() {
     const [todoId, setTodoId] = useState("");
@@ -42,7 +42,7 @@ export default function HomePage() {
                     step="1"
                     placeholder="Enter Todo ID"
                     value={todoId}
-                    onChange={(e) => setTodoId(e.target.value)}
+                    onChange={(event: ChangeEvent<HTMLInputElement>) => setTodoId(event.target.value)}
                 />
 
                 <button onClick={handleMove}>

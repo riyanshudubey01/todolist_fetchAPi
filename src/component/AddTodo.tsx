@@ -1,7 +1,6 @@
-export default function AddTodo(){
-
-
-    return<>
+export default function AddTodo() {
+    return (
+        <>
       <h1>Add Todo</h1>
         <form>
             <input
@@ -12,5 +11,6 @@ export default function AddTodo(){
                 Add Todo
             </button>
         </form>
-    </>
+        </>
+    );
 }

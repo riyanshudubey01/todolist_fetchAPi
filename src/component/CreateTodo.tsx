@@ -1,16 +1,16 @@
-import {useState} from "react";
-import {useNavigate} from "react-router-dom";
+import { useState, type FormEvent } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function CreateTodo(){
     const url="http://localhost:8000/todoList";
     const [title,setTitle] =useState("");
     const [id,setId]=useState("");
-    const [completed,setCompleted] =useState("");
+    const [completed,setCompleted] =useState("false");
     const [error,setError]=useState("");
 
     const navigate=useNavigate();
 
-    function handleSubmit(e){
+    function handleSubmit(e: FormEvent<HTMLFormElement>) {
         e.preventDefault();
         try{
             fetch(url,{
@@ -21,14 +21,14 @@ export default function CreateTodo(){
                 body:JSON.stringify({
                     id:id,
                     title:title,
-                    completed:completed
+                    completed: completed.toLowerCase() === "true"
                 })
             });
             navigate('/')
         }
         catch (error){
             console.log(error);
-            setError(error);
+            setError(error instanceof Error ? error.message : String(error));
         }
     }
     return(
